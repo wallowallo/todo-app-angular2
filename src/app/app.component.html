@@ -3,9 +3,10 @@
     {{title}}
   </h1>
 </div>
+<div>
   <input class='newTodo' placeholder='Hello World!' >
-<div class='todoList'>
-  <ul>
-    <li></li>
-  </ul>
+  <button type='submit'>Add</button>
 </div>
+  <ul class="todos">
+    <li *ngFor="let todo of todos">{{todo.description}}</li>
+  </ul>

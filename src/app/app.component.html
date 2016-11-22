@@ -8,7 +8,8 @@
 </div>
   <ul class="todos">
     <li *ngFor='let todo of todos'>
-      <span>Title: {{todo.title}}</span>
+      <span class='todoTitle'>Title: {{todo.title}}</span>
       <span>Description: {{todo.description}}</span>
+      <button class='deleteTodo'>X</button>
     </li>
   </ul>

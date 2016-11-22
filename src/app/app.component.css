@@ -2,14 +2,18 @@
   margin: 5px;
   padding: 5px;
   border: 3px solid black;
+  border-radius: 5px;
+  width: 215px;
+}
+
+.todoTitle {
+  display: block;
 }
 
 span {
-  display: block;
   margin: 5px;
   padding: 5px;
 }
-
 input {
   display: block;
   margin: 10px;
@@ -24,6 +28,11 @@ li {
   margin: 5px;
   padding: 5px;
   border: 3px solid black;
-  border-radius: 3px;
+  border-radius: 5px;
+  width: 500px;
 }
 
+.deleteTodo {
+  margin: 5px;
+  display: inline-list-item;
+}

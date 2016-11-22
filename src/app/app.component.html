@@ -1,12 +1,14 @@
-<div>
+<div class='form'>
   <h1>
     {{title}}
   </h1>
-</div>
-<div>
-  <input class='newTodo' placeholder='Hello World!' >
-  <button type='submit'>Add</button>
+  <input class='title' placeholder='Title' >
+  <input class='description' placeHolder='Description'>
+  <button type='submit' class='submitButton'>Add</button> 
 </div>
   <ul class="todos">
-    <li *ngFor="let todo of todos">{{todo.description}}</li>
+    <li *ngFor='let todo of todos'>
+      <span>Title: {{todo.title}}</span>
+      <span>Description: {{todo.description}}</span>
+    </li>
   </ul>

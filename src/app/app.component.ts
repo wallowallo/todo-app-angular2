@@ -44,12 +44,4 @@ export class AppComponent {
 		this.todos.push(this.addTodo.value);
 		this.addTodo.reset();
   }
-
-	@Input()
-	todo: any;
-
-	public deleteTodo(todo: Todo) {
-		let index = this.todos.indexOf(this.todo);
-		this.todos.splice(index, 1);
-  }
 }

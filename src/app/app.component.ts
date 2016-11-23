@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {
     FormBuilder,
@@ -43,5 +43,13 @@ export class AppComponent {
   newTodo() {
 		this.todos.push(this.addTodo.value);
 		this.addTodo.reset();
+  }
+
+	@Input()
+	todo: any;
+
+	public deleteTodo(todo: Todo) {
+		let index = this.todos.indexOf(this.todo);
+		this.todos.splice(index, 1);
   }
 }

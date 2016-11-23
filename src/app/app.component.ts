@@ -43,6 +43,5 @@ export class AppComponent {
   newTodo() {
 		this.todos.push(this.addTodo.value);
 		this.addTodo.reset();
-    console.log(this.addTodo.value);                                 
   }
 }

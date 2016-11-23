@@ -3,15 +3,15 @@
     {{header}}
   </h1>
   <label for='title'>Title:</label>
-  <input type='text' name='title' id='title'  placeholder='Type in title' [formControl]='title'>
+  <input type='text' name='title' id='title'  placeholder='Type in title' [formControl]='title' required>
   <label for='description'>Description:</label>
-  <input type='text' name='description' id='description' placeHolder='Type in description' [formControl]='description'>
+  <input type='text' name='description' id='description' placeHolder='Type in description' [formControl]='description' required>
   <button type='submit' class='submit'>Add Todo</button>
 </form>
   <ul class="todos">
     <li *ngFor='let todo of todos; let todoIndex = index'>
       <span class='todoTitle'>Title: {{todo.title}}</span>
       <span class='todoDescription'>Description: {{todo.description}}</span>
-      <button class='deleteTodo' (click)='todos.splice(todoIndex, 1)'>X</button>
+      <button class='deleteTodo' (click)='todos.splice(todoIndex, 1)'>Delete Task</button>
     </li>
   </ul>

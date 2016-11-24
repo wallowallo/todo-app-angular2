@@ -16,7 +16,7 @@
 	</form>
 	<div class='flex item center center db'>
 		<ul class="list center ma3">
-			<li class='center bg-blue ba bw1 shadow-1 b--light-blue ma3' *ngFor='let todo of todos; let todoIndex = index'>
+			<li class='center bg-blue ba bw1 shadow-1 b--black br2 ma3' *ngFor='let todo of todos; let todoIndex = index'>
 				<span class='f4 ma3 db underline'>Title: {{todo.title}}</span>
 				<span class='ma3 db'>{{todo.description}}</span>
 				<button class='bg-lightest-blue ma3 db br3 b--dark-pink purple' (click)='todos.splice(todoIndex, 1)'>Delete Task</button>

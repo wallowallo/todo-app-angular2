@@ -30,10 +30,23 @@ ul {
 
 li {
   margin: 5px auto;
+  border-color:  var(--light-blue);
   padding: 5px;
-  border: 3px solid black;
+  border: 3px solid;
   border-radius: 5px;
   width: 500px;
+}
+
+.deleteTodo {
+  margin: 10px;
+  display: inline-list-item;
+  border-radius: 5px;
+}
+
+.submit {
+  display: block;
+  margin: 10px;
+  padding: 5px;
 }
 
 label {
@@ -41,71 +54,3 @@ label {
   margin: 10px;
   padding: 5px;
 }
-
-.deleteTodo {
-   border-top: 1px solid #e0e0e0;
-   background: #c3d1db;
-   background: -webkit-gradient(linear, left top, left bottom, from(#6a899e), to(#c3d1db));
-   background: -webkit-linear-gradient(top, #6a899e, #c3d1db);
-   background: -moz-linear-gradient(top, #6a899e, #c3d1db);
-   background: -ms-linear-gradient(top, #6a899e, #c3d1db);
-   background: -o-linear-gradient(top, #6a899e, #c3d1db);
-   padding: 6.5px 13px;
-   -webkit-border-radius: 37px;
-   -moz-border-radius: 37px;
-   border-radius: 37px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: #ffffff;
-   font-size: 13px;
-   font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
-   text-decoration: none;
-   vertical-align: middle;
-}
-.deleteTodo:hover {
-   border-top-color: #85888a;
-   background: #85888a;
-   color: #de070b;
-}
-.deleteTodo:active {
-   border-top-color: #450019;
-   background: #450019;
-}
-
-
-.submit {
-   display: block;
-   margin: 10px;
-   padding: 5px;
-   border-top: 1px solid #e0e0e0;
-   background: #1a82cc;
-   background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#1a82cc));
-   background: -webkit-linear-gradient(top, #000000, #1a82cc);
-   background: -moz-linear-gradient(top, #000000, #1a82cc);
-   background: -ms-linear-gradient(top, #000000, #1a82cc);
-   background: -o-linear-gradient(top, #000000, #1a82cc);
-   padding: 9px 18px;
-   -webkit-border-radius: 28px;
-   -moz-border-radius: 28px;
-   border-radius: 28px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: #f7f7f7;
-   font-size: 14px;
-   font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
-   text-decoration: none;
-   vertical-align: middle;
-   }
-.submit:hover {
-   border-top-color: #1eb51b;
-   background: #1eb51b;
-   color: #e8714c;
-   }
-.submit:active {
-   border-top-color: #450019;
-   background: #450019;
-   }

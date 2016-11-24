@@ -39,7 +39,7 @@ export class AppComponent {
 	  	description: this.description
   	});
   }
-	
+
   newTodo() {
 		this.todos.push(this.addTodo.value);
 		this.addTodo.reset();

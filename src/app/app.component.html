@@ -1,17 +1,25 @@
-<form class='form' [formGroup]='addTodo' (ngSubmit)='newTodo()'>
-  <h1>
-    {{header}}
-  </h1>
-  <label for='title'>Title:</label>
-  <input type='text' name='title' id='title'  placeholder='Type in title' [formControl]='title' required>
-  <label for='description'>Description:</label>
-  <input type='text' name='description' id='description' placeHolder='Type in description' [formControl]='description' required>
-  <button type='submit' class='submit'>Add Todo</button>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+</head>
+<form class='flex item-center ma3' [formGroup]='addTodo' (ngSubmit)='newTodo()'>
+	<div class='center bg-green ba bw2 br2 shadow-1 b--light-blue'>
+  	<h1 class='f1 db ma3'>
+    	{{header}}
+  	</h1>
+  	<label class='db ma3' for='title'>Title:</label>
+  	<input class='db ma3' type='text' name='title' id='title'  placeholder='Type in title' [formControl]='title' required>
+  	<label class='db ma3' for='description'>Description:</label>
+  	<input class='db ma3' type='text' name='description' id='description' placeHolder='Type in description' [formControl]='description' required>
+  	<button type='submit' class='db ma3'>Add Todo</button>
+	</div>
 </form>
-  <ul class="todos">
-    <li *ngFor='let todo of todos; let todoIndex = index'>
-      <span class='todoTitle'>Title: {{todo.title}}</span>
-      <span class='todoDescription'>Description: {{todo.description}}</span>
-      <button class='deleteTodo' (click)='todos.splice(todoIndex, 1)'>Delete Task</button>
+<div class='flex item center center db'>
+  <ul class="list center ma3">
+    <li class='center bg-green ba bw1 shadow-1 b--light-blue ma3' *ngFor='let todo of todos; let todoIndex = index'>
+      <span class='ma3 db'>Title: {{todo.title}}</span>
+      <span class='ma3 db'>Description: {{todo.description}}</span>
+      <button class='ma3 db' (click)='todos.splice(todoIndex, 1)'>Delete Task</button>
     </li>
   </ul>
+</div>

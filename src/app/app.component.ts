@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Http, Response, Jsonp } from '@angular/http';
 import {
     FormBuilder,
       FormControl,
@@ -31,14 +32,18 @@ export class AppComponent {
   title: FormControl;
   description: FormControl;
 
-  constructor (builder: FormBuilder) {
+  constructor (private jsonp: Jsonp, builder: FormBuilder) {
 	  this.title = new FormControl('', []);
 	  this.description = new FormControl('', []);
 	  this.addTodo = builder.group({
 	  	title: this.title,
 	  	description: this.description
   	});
-  }
+   this.jsonp
+   .get(`http://localhost:3000`)
+	 .subscribe(data => console.log(data), error => console.log(error));
+
+	}
 
   newTodo() {
 		this.todos.push(this.addTodo.value);

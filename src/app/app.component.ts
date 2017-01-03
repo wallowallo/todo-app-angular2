@@ -9,6 +9,7 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
+import { AppService } from './app.service';
 
 export class Todo {
   title: string;
@@ -25,7 +26,8 @@ const TODOS: Todo[] = [
   moduleId: 'module.id',
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+	providers: [AppService]
 })
 
 
@@ -33,11 +35,14 @@ export class AppComponent {
   header = 'Todo:';
   todos = TODOS;
 
+	getData: string;
+
   addTodo: FormGroup;
   title: FormControl;
   description: FormControl;
 
-  constructor (private builder: FormBuilder) {
+
+  constructor (private appService: AppService, builder: FormBuilder) {
 	  this.title = new FormControl('', []);
 	  this.description = new FormControl('', []);
 	  this.addTodo = builder.group({
@@ -46,9 +51,13 @@ export class AppComponent {
   	});
 	}
 
-  private extractData(res: Response) {
-	  let body = res.json();
-	  return body.data || { };
+	onTestGet() {
+		this.appService.getTodo()
+				.subscribe(
+					data => this.getData = JSON.stringify(data),
+					error => alert(error),
+					() => console.log('finished')
+				);
 	}
 
   newTodo() {

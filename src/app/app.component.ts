@@ -20,20 +20,18 @@ export class AppComponent implements OnInit {
   header = 'Todo:';
   todos: Todo[];
 
-  // addTodo: FormGroup;
-  // title: FormControl;
-  // description: FormControl;
+  addTodo: FormGroup;
+  title: FormControl;
+  description: FormControl;
 
-  // constructor (private appService: AppService, builder: FormBuilder) {
-	//   this.title = new FormControl('', []);
-	//   this.description = new FormControl('', []);
-	//   this.addTodo = builder.group({
-	//   	title: this.title,
-	//   	description: this.description
-  // 	});
-	// }
-
-  constructor (private appService: AppService) {}
+  constructor (private appService: AppService, builder: FormBuilder) {
+	  this.title = new FormControl('', []);
+	  this.description = new FormControl('', []);
+	  this.addTodo = builder.group({
+	  	title: this.title,
+	  	description: this.description
+  	});
+	}
 
 	ngOnInit() { this.getTodo(); }
 
@@ -45,16 +43,16 @@ export class AppComponent implements OnInit {
 										);
 	}
 
-  addTodo (title: string, description: string) {
-    if (!title) { return; }
-    this.appService.addTodo(title, description)
-                   .subscribe(
-                       todo  => this.todos.push(todo),
-                       error =>  this.errorMessage = <any>error);
-  }
-
-  // newTodo() {
-	// 	this.todos.push(this.addTodo.value);
-	// 	this.addTodo.reset();
+  // addTodo (title: string, description: string) {
+  //   if (!title) { return; }
+  //   this.appService.addTodo(title, description)
+  //                  .subscribe(
+  //                      todo  => this.todos.push(todo),
+  //                      error =>  this.errorMessage = <any>error);
   // }
+
+  newTodo() {
+		this.todos.push(this.addTodo.value);
+		this.addTodo.reset();
+  }
 }

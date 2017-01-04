@@ -19,7 +19,7 @@ export class AppService {
 										.catch(this.handleError);
   }
 
-  addTodo (title: string, description: string): Observable<Todo> {
+  newTodo (title: string, description: string): Observable<Todo> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 

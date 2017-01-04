@@ -43,16 +43,16 @@ export class AppComponent implements OnInit {
 										);
 	}
 
-  // addTodo (title: string, description: string) {
-  //   if (!title) { return; }
-  //   this.appService.addTodo(title, description)
-  //                  .subscribe(
-  //                      todo  => this.todos.push(todo),
-  //                      error =>  this.errorMessage = <any>error);
-  // }
-
-  newTodo() {
-		this.todos.push(this.addTodo.value);
-		this.addTodo.reset();
+  newTodo (title: string, description: string) {
+    this.appService.newTodo(title, description)
+                   .subscribe(
+                       todo  => this.todos.push(this.addTodo.value),
+                       error =>  this.errorMessage = <any>error);
+    this.addTodo.reset();
   }
+
+  // newTodo() {
+	// 	this.todos.push(this.addTodo.value);
+	// 	this.addTodo.reset();
+  // }
 }

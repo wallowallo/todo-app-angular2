@@ -2,24 +2,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
+
+//import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+//import { TodoData } from './todo-data';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    //AppService
   ],
   imports: [
     BrowserModule,
     JsonpModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    //InMemoryWebApiModule.forRoot(TodoData)
   ],
-  providers: [AppService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

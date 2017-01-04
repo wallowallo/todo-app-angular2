@@ -2,18 +2,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
 </head>
-	<form class='flex item-center ma3' [formGroup]='addTodo' (ngSubmit)='newTodo()'>
+
+  <form class='flex item-center ma3'>
 		<div class='center bg-green ba bw2 br2 shadow-1 b--light-blue'>
 			<h1 class='f1 db ma3'>
 				{{header}}
 			</h1>
 			<label class='db ma3 underline' for='title'>Title:</label>
-			<input class='db ma3' type='text' name='title' id='title'  placeholder='Type in title' [formControl]='title' required>
+			<input class='db ma3' type='text' name='title' id='title'  placeholder='Type in title' required>
 			<label class='db ma3 underline' for='description'>Description:</label>
-			<input class='db ma3' type='text' name='description' id='description' placeHolder='Type in description' [formControl]='description' required>
-			<button type='submit' class='bg-silver b--gold black br3 db ma3'>Add Todo</button>
+			<input class='db ma3' type='text' name='description' id='description' placeHolder='Type in description' required>
+			<button (click)="addTodo();"  type='submit' class='bg-silver b--gold black br3 db ma3'>Add Todo</button>
 		</div>
 	</form>
+
 	<div class='flex item center center db'>
 		<ul class="list center ma3">
 			<li class='center bg-blue ba bw1 shadow-1 b--black br2 ma3' *ngFor='let todo of todos; let todoIndex = index'>
@@ -24,9 +26,6 @@
 		</ul>
 	</div>
 
-<div>
-  {{getData}} data
-</div>
 <div>
   <div class='bg-red fl w-90-l w-50-m'>
     p

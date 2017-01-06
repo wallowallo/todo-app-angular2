@@ -43,10 +43,10 @@ export class AppComponent implements OnInit {
 										);
 	}
 
-  newTodo (title: string, description: string) {
-    this.appService.newTodo(title, description)
+  newTodo (todo: string, description: string) {
+    this.appService.newTodo(todo, description)
                    .subscribe(
-                       todo  => this.todos.push(this.addTodo.value),
+                       todo => this.todos.push(todo),
                        error =>  this.errorMessage = <any>error);
     this.addTodo.reset();
   }

@@ -51,8 +51,7 @@ export class AppComponent implements OnInit {
     this.addTodo.reset();
   }
 
-  // newTodo() {
-	// 	this.todos.push(this.addTodo.value);
-	// 	this.addTodo.reset();
-  // }
+	deleteTodo(todoIndex) {
+		this.todos.splice(todoIndex, 1);
+	}
 }

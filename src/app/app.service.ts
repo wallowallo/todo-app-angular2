@@ -8,7 +8,6 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AppService {
-
   private todosUrl = 'http://localhost:3000';
 
   constructor (private http: Http) {}
@@ -27,6 +26,15 @@ export class AppService {
                     .map(this.extractData)
                     .catch(this.handleError);
   }
+
+	deleteTodo(id: string): Observable<Response> {
+		var obj = { "id": id };
+		var config = { data: obj };
+		console.log(config);
+	  return this.http.delete(this.todosUrl, config)
+										.map(this.extractData)
+										.catch(this.handleError);
+	}
 
   private extractData(res: Response) {
      let body = res.json();

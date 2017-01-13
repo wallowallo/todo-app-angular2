@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
 	errorMessage: string;
   header = 'Todo:';
   todos: Todo[];
+	 
 
   addTodo: FormGroup;
   title: FormControl;
@@ -51,7 +52,10 @@ export class AppComponent implements OnInit {
     this.addTodo.reset();
   }
 
-	deleteTodo(todoIndex) {
-		this.todos.splice(todoIndex, 1);
+	deleteTodo(id: string) {
+		this.appService.deleteTodo(id)
+									 .subscribe(
+											id => console.log(id),
+			 								error => this.errorMessage = <any>error);							 
 	}
 }

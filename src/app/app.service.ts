@@ -27,13 +27,10 @@ export class AppService {
                     .catch(this.handleError);
   }
 
-	deleteTodo(id: string): Observable<Response> {
-		var obj = { "id": id };
-		var config = { data: obj };
-		console.log(config);
-	  return this.http.delete(this.todosUrl, config)
-										.map(this.extractData)
-										.catch(this.handleError);
+	deleteTodo(id: string): Observable<any> {
+	  return this.http.delete(`${this.todosUrl}/${id}`);
+										//.success(201)
+										//.fail(400);					
 	}
 
   private extractData(res: Response) {

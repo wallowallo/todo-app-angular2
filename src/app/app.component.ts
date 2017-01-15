@@ -54,8 +54,6 @@ export class AppComponent implements OnInit {
 
 	deleteTodo(id: string) {
 		this.appService.deleteTodo(id)
-									 .subscribe(
-											id => console.log(id),
-			 								error => this.errorMessage = <any>error);							 
+									 .subscribe(res => console.log(res));
 	}
 }

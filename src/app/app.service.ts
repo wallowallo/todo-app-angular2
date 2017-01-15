@@ -29,8 +29,6 @@ export class AppService {
 
 	deleteTodo(id: string): Observable<any> {
 	  return this.http.delete(`${this.todosUrl}/${id}`);
-										//.success(201)
-										//.fail(400);					
 	}
 
   private extractData(res: Response) {

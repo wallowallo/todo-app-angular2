@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
   newTodo (todo: string, description: string) {
     this.appService.newTodo(todo, description)
                    .subscribe(
-                       todo => console.log(todo),
+                       todo => this.todos.push(todo),
                        error =>  this.errorMessage = <any>error);
     this.addTodo.reset();
   }

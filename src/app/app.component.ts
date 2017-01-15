@@ -47,13 +47,13 @@ export class AppComponent implements OnInit {
   newTodo (todo: string, description: string) {
     this.appService.newTodo(todo, description)
                    .subscribe(
-                       todo => this.todos.push(todo),
+                       todo => console.log(todo),
                        error =>  this.errorMessage = <any>error);
     this.addTodo.reset();
   }
 
 	deleteTodo(id: string) {
 		this.appService.deleteTodo(id)
-									 .subscribe(res => console.log(res));
+									 .subscribe(res => this.todos = this.todos.filter((todo) => res._body !== todo.description));
 	}
 }

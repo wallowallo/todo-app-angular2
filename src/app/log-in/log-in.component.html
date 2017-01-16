@@ -1,3 +1,17 @@
-<p>
-  log-in works!
-</p>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+</head>
+
+  <form class='flex item-center ma3' (ngSubmit)="getUser(email.value, password.value)" [formGroup]="User">
+		<div class='center bg-green ba bw2 br2 shadow-1 b--light-blue'>
+			<h1 class='f1 db ma3'>
+				Please Log In:
+			</h1>
+			<label class='db ma3 underline' for='email'>Username:</label>
+			<input class='db ma3' type='text' name='username' id='username'  placeholder='Type in your username' [formControl]="username" required>
+			<label class='db ma3 underline' for='description'>Password:</label>
+			<input class='db ma3' type='text' name='password' id='password' placeHolder='Type in your password' [formControl]="password" required>
+			<button type='submit' class='bg-silver b--gold black br3 db ma3'>Log In</button>
+		</div>
+	</form>

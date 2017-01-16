@@ -1,8 +1,13 @@
-<div>
-  <nav>
-    <a routerLink="/todo" routerLinkActive="active">Todo List</a>
-    <a routerLink="/log-in" routerLinkActive="active">Log In</a>
-    <a routerLink="/sign-up" routerLinkActive="active">Sign up</a>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+</head>
+
+<div class='flex item-center ma3'>
+  <nav class='center ba bw2 br2 shadow-1 b--light-blue'>
+    <a class='ma3' routerLink="/todo" routerLinkActive="active">Todo List</a>
+    <a class='ma3' routerLink="/log-in" routerLinkActive="active">Log In</a>
+    <a class='ma3' routerLink="/sign-up" routerLinkActive="active">Sign up</a>
   </nav>
 </div>
   <router-outlet></router-outlet>

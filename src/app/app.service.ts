@@ -31,6 +31,21 @@ export class AppService {
 	  return this.http.delete(`${this.todosUrl}/${id}`);
 	}
 
+  getUser(user: string): Observable<any> {
+    return this.http.get(this.todosUrl)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+  newUser(user: string): Observable<any> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(this.todosUrl, { user }, options)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
   private extractData(res: Response) {
      let body = res.json();
      return body.data || { };

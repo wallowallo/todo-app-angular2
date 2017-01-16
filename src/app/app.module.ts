@@ -2,19 +2,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
+import { LogInComponent } from './log-in/log-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
-//import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-//import { TodoData } from './todo-data';
-
-
+//const appRoutes: Routes = [
+//  { path: 'log-in',  component: LogInComponent },
+//  { path: '',       component: AppComponent },
+//  { path: 'sign-up', component: SignUpComponent },
+//  { path: '**', component: PageNotFoundComponent }
+//];
 
 @NgModule({
   declarations: [
     AppComponent,
-    //AppService
+    LogInComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +28,7 @@ import { AppService } from './app.service';
     ReactiveFormsModule,
     FormsModule,
     HttpModule,
-    //InMemoryWebApiModule.forRoot(TodoData)
+//    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

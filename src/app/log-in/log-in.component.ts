@@ -5,6 +5,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import '../rxjs-operators';
 
 import { AppService } from '../app.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-log-in',

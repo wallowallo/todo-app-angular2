@@ -6,6 +6,7 @@ import './rxjs-operators';
 
 import { AppService } from './app.service';
 import { Todo } from './todo';
+import { User } from './user';
 
 @Component({
   moduleId: 'module.id',

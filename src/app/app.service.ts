@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 
 import { Todo } from './todo';
+import { User } from './user';
 import { Observable } from 'rxjs/Observable';
 
 

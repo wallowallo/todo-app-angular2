@@ -3,7 +3,7 @@
   <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
 </head>
 
-  <form class='flex item-center ma3' (ngSubmit)="getUser(email.value, password.value)" [formGroup]="User">
+  <form class='flex item-center ma3' (ngSubmit)="getUser(User.value)" [formGroup]="User">
 		<div class='center bg-green ba bw2 br2 shadow-1 b--light-blue'>
 			<h1 class='f1 db ma3'>
 				Please Log In:

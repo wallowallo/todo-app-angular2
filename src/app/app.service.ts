@@ -32,7 +32,7 @@ export class AppService {
 	}
 
   getUser(user: string): Observable<any> {
-    return this.http.get(this.todosUrl)
+    return this.http.get(this.todosUrl + '/login')
                     .map(this.extractData)
                     .catch(this.handleError);
   }
@@ -41,7 +41,7 @@ export class AppService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post(this.todosUrl, { user }, options)
+    return this.http.post(this.todosUrl + '/signup', { user }, options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }

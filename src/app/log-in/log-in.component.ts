@@ -29,6 +29,7 @@ export class LogInComponent implements OnInit {
 	ngOnInit() {}
 
   getUser (user: string) {
+    console.log('user', user);
     this.appService.getUser(user)
                    .subscribe(
                        user => console.log(user),

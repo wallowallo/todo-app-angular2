@@ -8,10 +8,10 @@
     <h1 class='f1 db ma3'>
       Please Sign Up:
     </h1>
-    <label class='db ma3 underline' for='email'>Username</label>
-    <input class='db ma3' type='text' name='username' id='username'  placeholder='Type in your username' [formControl]="username" required>
-    <label class='db ma3 underline' for='description'>Password:</label>
-    <input class='db ma3' type='text' name='password' id='password' placeHolder='Type in your password' [formControl]="password" required>
+    <label class='db ma3 underline' for='username'>Username</label>
+    <input class='db ma3' type='text' name='username' minlength='4' maxlength='20' id='username'  placeholder='Type in your username' [formControl]="username" required>
+    <label class='db ma3 underline' for='password'>Password:</label>
+    <input class='db ma3' type='password' minlength='8' maxlength='25' name='password' id='password' placeHolder='Type in your password' [formControl]="password" required>
     <button type='submit' class='bg-silver b--gold black br3 db ma3'>Sign up</button>
   </div>
 </form>

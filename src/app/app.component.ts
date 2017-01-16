@@ -15,45 +15,4 @@ import { Todo } from './todo';
 	providers: [ AppService ]
 })
 
-export class AppComponent implements OnInit {
-	errorMessage: string;
-  header = 'Todo:';
-  todos: Todo[];
-
-
-  addTodo: FormGroup;
-  title: FormControl;
-  description: FormControl;
-
-  constructor (private appService: AppService, builder: FormBuilder) {
-	  this.title = new FormControl('', []);
-	  this.description = new FormControl('', []);
-	  this.addTodo = builder.group({
-	  	title: this.title,
-	  	description: this.description
-  	});
-	}
-
-	ngOnInit() { this.getTodo(); }
-
-	getTodo() {
-		this.appService.getTodo()
-										.subscribe(
-											 todos => this.todos = todos,
-											 error => this.errorMessage = <any>error
-										);
-	}
-
-  newTodo (todo: string, description: string) {
-    this.appService.newTodo(todo, description)
-                   .subscribe(
-                       todo => this.todos.push(todo),
-                       error =>  this.errorMessage = <any>error);
-    this.addTodo.reset();
-  }
-
-	deleteTodo(id: string) {
-		this.appService.deleteTodo(id)
-									 .subscribe(res => this.todos = this.todos.filter((todo) => res._body !== todo.description));
-	}
-}
+export class AppComponent {}

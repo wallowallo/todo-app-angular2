@@ -32,17 +32,26 @@ export class AppService {
 	  return this.http.delete(`${this.todosUrl}/${id}`);
 	}
 
-  getUser(user: string): Observable<any> {
+  getUser (): Observable<User[]> {
     return this.http.get(this.todosUrl + '/login')
                     .map(this.extractData)
                     .catch(this.handleError);
   }
 
-  newUser(user: string): Observable<any> {
+  logInUser(user: string): Observable<User> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post(this.todosUrl + '/signup', { user }, options)
+    return this.http.post(this.todosUrl + '/login', { user }, options)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+  newUser(user: string): Observable<User> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(this.todosUrl + '/register', { user }, options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }

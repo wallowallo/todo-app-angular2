@@ -14,6 +14,7 @@ import { User } from '../user';
 })
 export class LogInComponent implements OnInit {
   errorMessage: string;
+  users: User[];
   User: FormGroup;
   username: FormControl;
   password: FormControl;
@@ -27,11 +28,19 @@ export class LogInComponent implements OnInit {
   	});
 	}
 
-	ngOnInit() {}
+	ngOnInit() { this.getUser(); }
 
-  getUser (user: string) {
+  getUser() {
+		this.appService.getUser()
+										.subscribe(
+											 users => this.users = users,
+											 error => this.errorMessage = <any>error
+										);
+	}
+
+  logInUser (user: string) {
     console.log('user', user);
-    this.appService.getUser(user)
+    this.appService.logInUser(user)
                    .subscribe(
                        user => console.log(user),
                        error =>  this.errorMessage = <any>error);

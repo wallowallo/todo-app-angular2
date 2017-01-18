@@ -3,10 +3,14 @@
   <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
 </head>
 
+  <div class="flex item-center ma3">
+    <p class="center"><a class="ba bw2 br2 shadow-1 b--light-blue pa1" [routerLink]="['/log-in']">Log out</a></p>
+  </div>
+
   <form class='flex item-center ma3' (ngSubmit)="newTodo(title.value, description.value)" [formGroup]="addTodo">
 		<div class='center bg-green ba bw2 br2 shadow-1 b--light-blue'>
 			<h1 class='f1 db ma3'>
-				{{header}}
+				{{header}} {{currentUser}}
 			</h1>
 			<label class='db ma3 underline' for='title'>Title:</label>
 			<input class='db ma3' type='text' name='title' id='title'  placeholder='Type in title' [formControl]="title" required>

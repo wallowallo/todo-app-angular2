@@ -5,8 +5,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import '../rxjs-operators';
 
-import { LoginService } from '../_services/login.service';
-//import { AppService } from '../app.service';
+import { AlertService, LoginService } from '../_services/index';
 import { User } from '../_models/user';
 
 @Component({
@@ -25,25 +24,30 @@ export class LogInComponent implements OnInit {
   username: FormControl;
   password: FormControl;
 
-  constructor (private loginService: LoginService, builder: FormBuilder, private route: ActivatedRoute, private router: Router) {
-	  this.username = new FormControl('', []);
-	  this.password = new FormControl('', []);
-	  this.User = builder.group({
-	  	username: this.username,
-	  	password: this.password
+  constructor (
+    private loginService: LoginService,
+    builder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router) {
+
+	     this.username = new FormControl('', []);
+	     this.password = new FormControl('', []);
+	     this.User = builder.group({
+	  	 username: this.username,
+	  	 password: this.password
   	});
 	}
 
 	ngOnInit() {
     this.loginService.logout();
-    this.returnUrl = '/todo';
+    this.returnUrl = './todo' || '/log-in';
   };
 
   logInUser (user: string) {
-    console.log('user', user);
     this.loginService.logInUser(user)
                    .subscribe(
                        data => {
+                                 console.log(data);
                                  this.router.navigate([this.returnUrl]);
                        },
                        error =>  this.errorMessage = <any>error);

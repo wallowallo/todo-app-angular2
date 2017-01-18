@@ -4,8 +4,7 @@ import { Http, Response, Jsonp } from '@angular/http';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import '../rxjs-operators';
 
-import { TodoService } from '../_services/todo.service';
-import { AppService } from '../app.service';
+import { TodoService, UserService } from '../_services/index';
 import { Todo } from '../_models/todo';
 import { User } from '../_models/user';
 
@@ -16,11 +15,10 @@ import { User } from '../_models/user';
 })
 export class TodoComponent implements OnInit {
   currentUser: User;
-  users: User[] = [];
+  users: User[];
   errorMessage: string;
   header = 'Todo:';
   todos: Todo[];
-
 
   addTodo: FormGroup;
   title: FormControl;

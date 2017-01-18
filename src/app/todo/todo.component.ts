@@ -34,7 +34,18 @@ export class TodoComponent implements OnInit {
   	});
 	}
 
-	ngOnInit() { this.getTodo(); }
+	ngOnInit() {
+    // this.getUser();
+    this.getTodo();
+  }
+
+  // getUser() {
+  //   this.todoService.getUser()
+  //                   .subscribe(
+  //                     users => this.users = users,
+  //                     error => this.errorMessage = <any>error
+  //                   );
+  // }
 
 	getTodo() {
 		this.todoService.getTodo()

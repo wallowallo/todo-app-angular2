@@ -13,6 +13,12 @@ export class TodoService {
 
   constructor (private http: Http) {}
 
+  //  getUser (): Observable<User[]> {
+  //    return this.http.get(this.todosUrl + '/users')
+  //                    .map(res => res.json())
+  //                    .catch(this.handleError);
+  //  }
+
   getTodo (): Observable<Todo[]> {
     return this.http.get(this.todosUrl)
                     .map(this.extractData)

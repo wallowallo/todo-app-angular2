@@ -2,24 +2,30 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Http, Response, Jsonp } from '@angular/http';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import '../rxjs-operators';
 
-import { AppService } from '../app.service';
-import { User } from '../user';
+import { LoginService } from '../_services/login.service';
+//import { AppService } from '../app.service';
+import { User } from '../_models/user';
 
 @Component({
+  moduleId: 'module.id',
   selector: 'app-log-in',
-  templateUrl: './log-in.component.html',
-  styleUrls: ['./log-in.component.css']
+  templateUrl: './log-in.component.html'
 })
+
 export class LogInComponent implements OnInit {
+  model: any = {};
+  loading = false;
+  returnUrl: string;
   errorMessage: string;
   users: User[];
   User: FormGroup;
   username: FormControl;
   password: FormControl;
 
-  constructor (private appService: AppService, builder: FormBuilder) {
+  constructor (private loginService: LoginService, builder: FormBuilder, private route: ActivatedRoute, private router: Router) {
 	  this.username = new FormControl('', []);
 	  this.password = new FormControl('', []);
 	  this.User = builder.group({
@@ -28,21 +34,18 @@ export class LogInComponent implements OnInit {
   	});
 	}
 
-	ngOnInit() { this.getUser(); }
-
-  getUser() {
-		this.appService.getUser()
-										.subscribe(
-											 users => this.users = users,
-											 error => this.errorMessage = <any>error
-										);
-	}
+	ngOnInit() {
+    this.loginService.logout();
+    this.returnUrl = '/todo';
+  };
 
   logInUser (user: string) {
     console.log('user', user);
-    this.appService.logInUser(user)
+    this.loginService.logInUser(user)
                    .subscribe(
-                       user => console.log(user),
+                       data => {
+                                 this.router.navigate([this.returnUrl]);
+                       },
                        error =>  this.errorMessage = <any>error);
   }
 }

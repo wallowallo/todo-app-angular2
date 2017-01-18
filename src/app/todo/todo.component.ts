@@ -4,15 +4,19 @@ import { Http, Response, Jsonp } from '@angular/http';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import '../rxjs-operators';
 
+import { TodoService } from '../_services/todo.service';
 import { AppService } from '../app.service';
-import { Todo } from '../todo';
+import { Todo } from '../_models/todo';
+import { User } from '../_models/user';
 
 @Component({
+  moduleId: 'module.id',
   selector: 'app-todo',
-  templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.css']
+  templateUrl: './todo.component.html'
 })
 export class TodoComponent implements OnInit {
+  currentUser: User;
+  users: User[] = [];
   errorMessage: string;
   header = 'Todo:';
   todos: Todo[];
@@ -22,7 +26,8 @@ export class TodoComponent implements OnInit {
   title: FormControl;
   description: FormControl;
 
-  constructor (private appService: AppService, builder: FormBuilder) {
+  constructor (private todoService: TodoService, builder: FormBuilder) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 	  this.title = new FormControl('', []);
 	  this.description = new FormControl('', []);
 	  this.addTodo = builder.group({
@@ -34,7 +39,7 @@ export class TodoComponent implements OnInit {
 	ngOnInit() { this.getTodo(); }
 
 	getTodo() {
-		this.appService.getTodo()
+		this.todoService.getTodo()
 										.subscribe(
 											 todos => this.todos = todos,
 											 error => this.errorMessage = <any>error
@@ -42,7 +47,7 @@ export class TodoComponent implements OnInit {
 	}
 
   newTodo (todo: string, description: string) {
-    this.appService.newTodo(todo, description)
+    this.todoService.newTodo(todo, description)
                    .subscribe(
                        todo => this.todos.push(todo),
                        error =>  this.errorMessage = <any>error);
@@ -50,7 +55,7 @@ export class TodoComponent implements OnInit {
   }
 
 	deleteTodo(id: string) {
-		this.appService.deleteTodo(id)
+		this.todoService.deleteTodo(id)
 									 .subscribe(res => this.todos = this.todos.filter((todo) => res._body !== todo.description));
 	}
 }

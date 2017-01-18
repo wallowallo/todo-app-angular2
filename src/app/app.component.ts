@@ -4,16 +4,10 @@ import { Http, Response, Jsonp } from '@angular/http';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import './rxjs-operators';
 
-import { AppService } from './app.service';
-import { Todo } from './todo';
-import { User } from './user';
-
 @Component({
   moduleId: 'module.id',
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-	providers: [ AppService ]
+  templateUrl: './app.component.html'
 })
 
 export class AppComponent {}

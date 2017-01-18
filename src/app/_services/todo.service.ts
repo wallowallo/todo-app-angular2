@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 
-import { Todo } from './_models/todo';
-import { User } from './_models/user';
+import { Todo } from '../_models/todo';
+import { User } from '../_models/user';
 import { Observable } from 'rxjs/Observable';
 
 
 @Injectable()
-export class AppService {
+export class TodoService {
   private todosUrl = 'http://localhost:3000';
 
   constructor (private http: Http) {}
@@ -31,42 +31,6 @@ export class AppService {
 	deleteTodo(id: string): Observable<any> {
 	  return this.http.delete(`${this.todosUrl}/${id}`);
 	}
-
-//  getUser (): Observable<User[]> {
-//    return this.http.get(this.todosUrl + '/api/login', this.jwt())
-//                    .map(res => res.json())
-//                    .catch(this.handleError);
-//  }
-
-  logInUser(user: string): Observable<User> {
-    return this.http.post(this.todosUrl + '/api/login', user, this.jwt())
-                    .map(res => {
-																	 let user = res.json();
-              									   if (user && user.token) {
-                   								  	localStorage.setItem('currentUser', JSON.stringify(user));
-																	 }
-               				 					})
-                    .catch(this.handleError);
-  }
-
-  newUser(user: string): Observable<User> {
-    return this.http.post(this.todosUrl + '/api/register',  user, this.jwt())
-                    .map(res => res.json())
-                    .catch(this.handleError);
-  }
-
-	logout() {
-      localStorage.removeItem('currentUser');
-   }
-
-	  private jwt() {
-        // create authorization header with jwt token
-        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        if (currentUser && currentUser.token) {
-            let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token });
-            return new RequestOptions({ headers: headers });
-        }
-    }
 
   private extractData(res: Response) {
      let body = res.json();

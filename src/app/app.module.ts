@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule, JsonpModule } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -11,7 +11,7 @@ import { AuthGuard } from './_guards/index';
 
 import { LoginService, SignupService, TodoService, AlertService, UserService } from './_services/index';
 
-import { routing } from './app.routing';
+import { routing } from './_routing/app.routing';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,6 @@ import { routing } from './app.routing';
   ],
   imports: [
     BrowserModule,
-    JsonpModule,
     ReactiveFormsModule,
     FormsModule,
     HttpModule,

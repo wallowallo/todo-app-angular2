@@ -1,10 +1,10 @@
 import { RouterModule, Routes } from '@angular/router';
 
-import { LogInComponent } from './log-in/index';
-import { SignUpComponent } from './sign-up/index';
-import { TodoComponent } from './todo/index';
+import { LogInComponent } from '../log-in/index';
+import { SignUpComponent } from '../sign-up/index';
+import { TodoComponent } from '../todo/index';
 
-import { AuthGuard } from './_guards/index';
+import { AuthGuard } from '../_guards/index';
 
 const appRoutes: Routes = [
   { path: '',   redirectTo: '/sign-up', pathMatch: 'full' },

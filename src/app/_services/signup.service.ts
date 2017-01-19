@@ -14,7 +14,7 @@ export class SignupService {
   constructor (private http: Http) {}
 
   newUser(user: string): Observable<User> {
-    return this.http.post(this.registerUrl,  user, this.jwt())
+    return this.http.post(this.registerUrl, user, this.jwt())
                     .map(res => res.json());
   }
 

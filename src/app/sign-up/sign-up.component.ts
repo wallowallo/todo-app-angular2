@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Http, Response, Jsonp } from '@angular/http';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import '../rxjs-operators';
+import '../_helpers/rxjs-operators';
 
 import { SignupService, AlertService, UserService } from '../_services/index'
 import { User } from '../_models/user';
@@ -39,7 +39,6 @@ export class SignUpComponent {
     this.signupService.newUser(user)
                    .subscribe(
                      data => {
-                               console.log(user);
                                this.alertService.success('Registration successful', true);
                                this.router.navigate(['/log-in']);
                      },

@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Http, Response, Jsonp } from '@angular/http';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import '../rxjs-operators';
+import '../_helpers/rxjs-operators';
 
 import { AlertService, LoginService } from '../_services/index';
 import { User } from '../_models/user';

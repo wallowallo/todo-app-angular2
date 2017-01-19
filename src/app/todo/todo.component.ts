@@ -18,6 +18,7 @@ export class TodoComponent implements OnInit {
   jwtHelper: JwtHelper = new JwtHelper();
   errorMessage: string;
   currentUser: string;
+  currentUserId: string;
   header = 'Todo List:';
   todos: Todo[];
 
@@ -26,7 +27,8 @@ export class TodoComponent implements OnInit {
   description: FormControl;
 
   constructor (private todoService: TodoService, builder: FormBuilder) {
-    this.currentUser = this.jwtHelper.decodeToken(localStorage.getItem('currentUser'));
+    this.currentUser = this.jwtHelper.decodeToken(localStorage.getItem('currentUser')).username;
+    this.currentUserId = this.jwtHelper.decodeToken(localStorage.getItem('currentUser')).id;
 	  this.title = new FormControl('', []);
 	  this.description = new FormControl('', []);
 	  this.addTodo = builder.group({
@@ -35,15 +37,10 @@ export class TodoComponent implements OnInit {
   	});
 	}
 
-	ngOnInit() { this.getTodo(); }
-
-  // useJwtHelper() {
-  //   var token = localStorage.getItem('currentUser');
-  //
-  //   console.log(
-  //     this.jwtHelper.decodeToken(token)
-  //   );
-  // }
+	ngOnInit() {
+    this.getTodo();
+    //this.getTodoById(this.currentUserId);
+   }
 
 	getTodo() {
 		this.todoService.getTodo()
@@ -53,10 +50,22 @@ export class TodoComponent implements OnInit {
 										);
 	}
 
-  newTodo (username: string, todo: string, description: string) {
-    this.todoService.newTodo(username, todo, description)
+  getTodoById(id: string) {
+    this.todoService.getTodoById(id)
+                    .subscribe(
+                       todos => {
+                         console.log(todos);
+                         this.todos = todos},
+                       error => this.errorMessage = <any>error
+                    );
+  }
+
+  newTodo (userId: string, todo: string, description: string) {
+    this.todoService.newTodo(userId, todo, description)
                    .subscribe(
-                       todo => this.todos.push(todo),
+                       todo => {
+                         console.log(todo);
+                         this.todos.push(todo);},
                        error =>  this.errorMessage = <any>error);
     this.addTodo.reset();
   }

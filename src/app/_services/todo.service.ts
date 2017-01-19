@@ -14,16 +14,24 @@ export class TodoService {
   constructor (private http: Http) {}
 
   getTodo (): Observable<Todo[]> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
     return this.http.get(this.todosUrl)
                     .map(this.extractData)
 										.catch(this.handleError);
   }
 
-  newTodo (username: string, title: string, description: string): Observable<Todo> {
+  getTodoById (id: string): Observable<Todo[]> {
+    return this.http.get(this.todosUrl)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+  newTodo (userId: string, title: string, description: string): Observable<Todo> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post(this.todosUrl, { username, title, description }, options)
+    return this.http.post(`${this.todosUrl}/${userId}`, { userId, title, description }, options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }

@@ -7,10 +7,16 @@
     <p class="center"><a class="ba bw2 br2 shadow-1 b--light-blue pa1" [routerLink]="['/log-in']">Log out</a></p>
   </div>
 
-  <form class='flex item-center ma3' (ngSubmit)="newTodo(title.value, description.value)" [formGroup]="addTodo">
+  <div class='flex item-center'>
+    <h1 class='f1 db ma3 center'>
+      {{currentUser.username}}´s {{header}}
+    </h1>
+  </div>
+
+  <form class='flex item-center ma3' (ngSubmit)="newTodo(currentUser.username, title.value, description.value)" [formGroup]="addTodo">
 		<div class='center bg-green ba bw2 br2 shadow-1 b--light-blue'>
 			<h1 class='f1 db ma3'>
-				{{currentUser.username}}´s {{header}}
+				Make Todos:
 			</h1>
 			<label class='db ma3 underline' for='title'>Title:</label>
 			<input class='db ma3' type='text' name='title' id='title'  placeholder='Type in title' [formControl]="title" required>

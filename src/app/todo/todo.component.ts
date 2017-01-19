@@ -53,8 +53,8 @@ export class TodoComponent implements OnInit {
 										);
 	}
 
-  newTodo (todo: string, description: string) {
-    this.todoService.newTodo(todo, description)
+  newTodo (username: string, todo: string, description: string) {
+    this.todoService.newTodo(username, todo, description)
                    .subscribe(
                        todo => this.todos.push(todo),
                        error =>  this.errorMessage = <any>error);

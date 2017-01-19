@@ -11,7 +11,7 @@ const appRoutes: Routes = [
   { path: 'log-in',  component: LogInComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'todo', component: TodoComponent, canActivate: [AuthGuard] },
-  { path: '**', redirectTo: '/sign-up' }
+  { path: '**', redirectTo: '/todo' }
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

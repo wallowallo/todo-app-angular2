@@ -10,7 +10,7 @@
   <form class='flex item-center ma3' (ngSubmit)="newTodo(title.value, description.value)" [formGroup]="addTodo">
 		<div class='center bg-green ba bw2 br2 shadow-1 b--light-blue'>
 			<h1 class='f1 db ma3'>
-				{{header}} {{currentUser}}
+				{{currentUser.username}}´s {{header}}
 			</h1>
 			<label class='db ma3 underline' for='title'>Title:</label>
 			<input class='db ma3' type='text' name='title' id='title'  placeholder='Type in title' [formControl]="title" required>
@@ -37,13 +37,4 @@
   <div class='bg-blue fl w-10-l w-50-m'>
     a
   </div>
-</div>
-
-<div class='flex item center center db'>
-  <ul class="list center ma3">
-    <li class='center bg-blue ba bw1 shadow-1 b--black br2 ma3' *ngFor='let user of users; let i = index'>
-      <span class='f4 ma3'>Username: {{user.username}}</span>
-      <button class='bg-lightest-blue ma3 br3 b--dark-pink purple' (click)='deleteUser(user._id)'>Delete User</button>
-    </li>
-  </ul>
 </div>

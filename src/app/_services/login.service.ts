@@ -15,8 +15,8 @@ export class LoginService {
 
   logInUser(user: string): Observable<any> { //Observable<User>
     return this.http.post(this.loginUrl, user, this.jwt())
-                    .map(res => {
-																	 let user = res.json();
+                    .map((response: Response) => {
+																	 let user = response.json();
               									   if (user && user.token) {
                    								  	localStorage.setItem('currentUser', JSON.stringify(user));
 																	 }

@@ -40,14 +40,13 @@ export class LogInComponent implements OnInit {
 
 	ngOnInit() {
     this.loginService.logout();
-    this.returnUrl = './todo' || '/log-in';
+    this.returnUrl = '/todo'|| '/log-in';
   };
 
   logInUser (user: string) {
     this.loginService.logInUser(user)
                    .subscribe(
                        data => {
-                                 console.log(data);
                                  this.router.navigate([this.returnUrl]);
                        },
                        error =>  this.errorMessage = <any>error);

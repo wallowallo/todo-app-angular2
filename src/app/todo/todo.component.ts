@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Http, Response, Jsonp } from '@angular/http';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { JwtHelper } from 'angular2-jwt';
 import '../_helpers/rxjs-operators';
 
 import { TodoService, UserService } from '../_services/index';
@@ -14,10 +15,10 @@ import { User } from '../_models/user';
   templateUrl: './todo.component.html'
 })
 export class TodoComponent implements OnInit {
-  currentUser: User;
-  users: User[];
+  jwtHelper: JwtHelper = new JwtHelper();
   errorMessage: string;
-  header = 'Todo:';
+  currentUser: string;
+  header = 'Todo List:';
   todos: Todo[];
 
   addTodo: FormGroup;
@@ -25,7 +26,7 @@ export class TodoComponent implements OnInit {
   description: FormControl;
 
   constructor (private todoService: TodoService, builder: FormBuilder) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.currentUser = this.jwtHelper.decodeToken(localStorage.getItem('currentUser'));
 	  this.title = new FormControl('', []);
 	  this.description = new FormControl('', []);
 	  this.addTodo = builder.group({
@@ -34,17 +35,14 @@ export class TodoComponent implements OnInit {
   	});
 	}
 
-	ngOnInit() {
-    // this.getUser();
-    this.getTodo();
-  }
+	ngOnInit() { this.getTodo(); }
 
-  // getUser() {
-  //   this.todoService.getUser()
-  //                   .subscribe(
-  //                     users => this.users = users,
-  //                     error => this.errorMessage = <any>error
-  //                   );
+  // useJwtHelper() {
+  //   var token = localStorage.getItem('currentUser');
+  //
+  //   console.log(
+  //     this.jwtHelper.decodeToken(token)
+  //   );
   // }
 
 	getTodo() {

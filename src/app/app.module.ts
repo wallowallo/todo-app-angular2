@@ -10,7 +10,7 @@ import { SignUpComponent } from './sign-up/index';
 import { TodoComponent } from './todo/index';
 import { AuthGuard } from './_guards/index';
 
-import { LoginService, SignupService, TodoService, AlertService, UserService } from './_services/index';
+import { LoginService, SignupService, TodoService, AlertService } from './_services/index';
 
 import { routing } from './_routing/app.routing';
 
@@ -34,7 +34,6 @@ import { routing } from './_routing/app.routing';
     SignupService,
     AlertService,
     TodoService,
-    UserService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

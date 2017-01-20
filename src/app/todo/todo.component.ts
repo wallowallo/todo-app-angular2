@@ -5,7 +5,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { JwtHelper } from 'angular2-jwt';
 import '../_helpers/rxjs-operators';
 
-import { TodoService, UserService } from '../_services/index';
+import { TodoService } from '../_services/index';
 import { Todo } from '../_models/todo';
 import { User } from '../_models/user';
 
@@ -37,30 +37,15 @@ export class TodoComponent implements OnInit {
   	});
 	}
 
-	ngOnInit() {
-    this.getTodo();
-    //this.getTodoById(this.currentUserId);
-   }
+	ngOnInit() { this.getTodoById(this.currentUserId); }
 
-	getTodo() {
-		this.todoService.getTodo()
+	getTodoById(userId: string) {
+		this.todoService.getTodoById(userId)
 										.subscribe(
-											 todos => { let array = todos;
-                                  this.todos = array.filter(todo => todo.userId === this.currentUserId);
-                                },
+											 todos => this.todos = todos,
 											 error => this.errorMessage = <any>error
 										);
 	}
-
-  // getTodoById(id: string) {
-  //   this.todoService.getTodoById(id)
-  //                   .subscribe(
-  //                      todos => {
-  //                        console.log(todos);
-  //                        this.todos = todos},
-  //                      error => this.errorMessage = <any>error
-  //                   );
-  // }
 
   newTodo (userId: string, todo: string, description: string) {
     this.todoService.newTodo(userId, todo, description)

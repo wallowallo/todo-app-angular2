@@ -13,10 +13,8 @@ export class TodoService {
 
   constructor (private http: Http) {}
 
-  getTodo (): Observable<Todo[]> {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
-    return this.http.get(this.todosUrl)
+  getTodoById (userId: string): Observable<any> {
+    return this.http.get(`${this.todosUrl}/${userId}`)
                     .map(this.extractData)
 										.catch(this.handleError);
   }

@@ -5,7 +5,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import '../_helpers/rxjs-operators';
 
-import { SignupService, AlertService, UserService } from '../_services/index'
+import { SignupService, AlertService } from '../_services/index'
 import { User } from '../_models/user';
 
 @Component({
@@ -24,8 +24,7 @@ export class SignUpComponent {
     builder: FormBuilder,
     private signupService: SignupService,
     private alertService: AlertService,
-    private router: Router,
-    private userService: UserService) {
+    private router: Router) {
 
 	     this.username = new FormControl('', []);
 	     this.password = new FormControl('', []);

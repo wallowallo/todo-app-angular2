@@ -41,7 +41,7 @@ export class SignUpComponent {
                                this.alertService.success('Registration successful', true);
                                this.router.navigate(['/log-in']);
                      },
-                       error =>  this.errorMessage = <any>error);
+                       error =>  this.alertService.error(error));
     this.addUser.reset();
   }
 }

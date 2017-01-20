@@ -21,11 +21,11 @@ export class TodoService {
 										.catch(this.handleError);
   }
 
-  getTodoById (id: string): Observable<Todo[]> {
-    return this.http.get(this.todosUrl)
-                    .map(this.extractData)
-                    .catch(this.handleError);
-  }
+  // getTodoById (id: string): Observable<Todo[]> {
+  //   return this.http.get(this.todosUrl)
+  //                   .map(this.extractData)
+  //                   .catch(this.handleError);
+  // }
 
   newTodo (userId: string, title: string, description: string): Observable<Todo> {
     let headers = new Headers({ 'Content-Type': 'application/json' });

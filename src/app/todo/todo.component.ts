@@ -45,26 +45,27 @@ export class TodoComponent implements OnInit {
 	getTodo() {
 		this.todoService.getTodo()
 										.subscribe(
-											 todos => this.todos = todos,
+											 todos => { let array = todos;
+                                  this.todos = array.filter(todo => todo.userId === this.currentUserId);
+                                },
 											 error => this.errorMessage = <any>error
 										);
 	}
 
-  getTodoById(id: string) {
-    this.todoService.getTodoById(id)
-                    .subscribe(
-                       todos => {
-                         console.log(todos);
-                         this.todos = todos},
-                       error => this.errorMessage = <any>error
-                    );
-  }
+  // getTodoById(id: string) {
+  //   this.todoService.getTodoById(id)
+  //                   .subscribe(
+  //                      todos => {
+  //                        console.log(todos);
+  //                        this.todos = todos},
+  //                      error => this.errorMessage = <any>error
+  //                   );
+  // }
 
   newTodo (userId: string, todo: string, description: string) {
     this.todoService.newTodo(userId, todo, description)
                    .subscribe(
                        todo => {
-                         console.log(todo);
                          this.todos.push(todo);},
                        error =>  this.errorMessage = <any>error);
     this.addTodo.reset();

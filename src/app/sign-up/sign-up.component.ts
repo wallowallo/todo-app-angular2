@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Http, Response, Jsonp } from '@angular/http';
+import { Component } from '@angular/core';
+import { Http, Response } from '@angular/http';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import '../_helpers/rxjs-operators';
@@ -13,6 +12,7 @@ import { User } from '../_models/user';
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html'
 })
+
 export class SignUpComponent {
   returnUrl: string;
   errorMessage: string;

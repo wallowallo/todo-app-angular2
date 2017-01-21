@@ -13,7 +13,7 @@ export class LoginService {
 
   constructor (private http: Http) {}
 
-  logInUser(user: string): Observable<any> { //Observable<User>
+  logInUser(user: string): Observable<any> {
     return this.http.post(this.loginUrl, user, this.jwt())
                     .map((response: Response) => {
 																	 let user = response.json();

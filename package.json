@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "engines": {
-    "node": "7.4.0"
+    "node": "6.6.0"
   },
   "angular-cli": {},
   "scripts": {
@@ -47,6 +47,7 @@
     "karma-cli": "^1.0.1",
     "karma-jasmine": "^1.0.2",
     "karma-remap-istanbul": "^0.2.1",
+    "@types/node": "^6.0.42",
     "protractor": "4.0.9",
     "tachyons": "^4.5.5",
     "ts-node": "1.2.1",

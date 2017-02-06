@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class SignupService {
-  private registerUrl = 'http://localhost:3000/api/register';
+  private registerUrl = '/api/register';
 
   constructor (private http: Http) {}
 

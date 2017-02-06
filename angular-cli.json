@@ -1,6 +1,6 @@
 {
   "project": {
-    "version": "1.0.0-beta.19-3",
+    "version": "1.0.0-beta.20-4",
     "name": "todo-app"
   },
   "apps": [
@@ -9,7 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "smiley.png"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -18,14 +18,9 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-          "../node_modules/bootstrap/dist/css/bootstrap.css",
-          "styles.css"
+        "styles.css"
       ],
-      "scripts": [
-        "../node_modules/jquery/dist/jquery.js",
-        "../node_modules/tether/dist/js/tether.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.js"
-      ],
+      "scripts": [],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",

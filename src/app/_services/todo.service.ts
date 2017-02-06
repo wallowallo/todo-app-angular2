@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class TodoService {
-  private todosUrl = '/';
+  private todosUrl = 'https://todo-express-backend.herokuapp.com/';
 
   constructor (private http: Http) {}
 

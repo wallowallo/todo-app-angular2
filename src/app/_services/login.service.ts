@@ -9,7 +9,7 @@ import { User } from '../_models/user';
 
 @Injectable()
 export class LoginService {
-  private loginUrl = '/login';
+  private loginUrl = 'https://todo-express-backend.herokuapp.com/login';
 
   constructor (private http: Http) {}
 

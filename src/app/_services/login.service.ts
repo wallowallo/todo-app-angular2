@@ -9,7 +9,7 @@ import { User } from '../_models/user';
 
 @Injectable()
 export class LoginService {
-  private loginUrl = '/api/login';
+  private loginUrl = '/login';
 
   constructor (private http: Http) {}
 

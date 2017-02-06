@@ -39,7 +39,7 @@ export class SignUpComponent {
                    .subscribe(
                      data => {
                                this.alertService.success('Registration successful', true);
-                               this.router.navigate(['/log-in']);
+                               this.router.navigate(['']);
                      },
                        error =>  this.alertService.error(error));
     this.addUser.reset();

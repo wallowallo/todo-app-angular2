@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class SignupService {
-  private registerUrl = 'https://todo-express-backend.herokuapp.com/api/register';
+  private registerUrl = 'https://angular2-todolist.herokuapp.com/api/register';
 
   constructor (private http: Http) {}
 

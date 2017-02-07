@@ -9,7 +9,7 @@ import { User } from '../_models/user';
 
 @Injectable()
 export class LoginService {
-  private loginUrl = 'https://angular2-todolist.herokuapp.com/api/login';
+  private loginUrl = 'http://localhost:3000/api/login';
 
   constructor (private http: Http) {}
 

@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+.alertMessage {
+    margin: 0 auto;
+    width:250px;
+    background: red;
+    -webkit-animation: fadeinout 4s linear forwards;
+    animation: fadeinout 4s linear forwards;
+    opacity: 0;
+}
+
+@-webkit-keyframes fadeinout {
+  50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  50% { opacity: 1; }
+}

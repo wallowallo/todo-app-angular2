@@ -15,6 +15,7 @@ import { User } from '../_models/user';
 
 export class LogInComponent implements OnInit {
   returnUrl: string;
+  loading = false;
   errorMessage: string;
   users: User[];
   User: FormGroup;
@@ -41,11 +42,13 @@ export class LogInComponent implements OnInit {
   };
 
   logInUser (user: string) {
+    this.loading = true;
     this.loginService.logInUser(user)
                    .subscribe(
                        data => {
                                  this.router.navigate([this.returnUrl]);
                        },
-                       error =>  this.errorMessage = <any>error);
+                       error =>  {this.errorMessage = <any>error
+                                  this.loading = false;});
   }
 }

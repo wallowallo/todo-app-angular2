@@ -14,6 +14,7 @@ import { User } from '../_models/user';
 })
 
 export class SignUpComponent {
+  loading = false;
   returnUrl: string;
   errorMessage: string;
   addUser: FormGroup;
@@ -35,13 +36,15 @@ export class SignUpComponent {
 	 }
 
   newUser (user: string) {
+    this.loading = true;
     this.signupService.newUser(user)
                    .subscribe(
                      data => {
                                this.alertService.success('Registration successful', true);
                                this.router.navigate(['/log-in']);
                      },
-                       error =>  this.alertService.error(error));
+                       error =>  {this.alertService.error(error);
+                                  this.loading = false;});
     this.addUser.reset();
   }
 }

@@ -12,7 +12,8 @@
 			<input class='db ma3' type='text' minlength='4' maxlength='20' name='username' id='username'  placeholder='Type in your username' [formControl]="username" required>
 			<label class='db ma3 underline' for='password'>Password:</label>
 			<input class='db ma3' type='password' minlength='8' maxlength='25' name='password' id='password' placeHolder='Type in your password' [formControl]="password" required>
-			<button type='submit' class='bg-silver b--gold black br3 ma3'>Log In</button>
+			<button [disabled]="loading" type='submit' class='bg-silver b--gold black br3 ma3'>Log In</button>
+      <img class="loadingCircle" *ngIf="loading" src="loader.gif">
       <a class="center ba bw2 br2 shadow-1 b--light-blue pa1 black" routerLink="/sign-up" routerLinkActive="active">Sign up</a>
   	</div>
 	</form>

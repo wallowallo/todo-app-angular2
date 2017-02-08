@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.loadingCircle {
+  max-width: 30px;
+  max-height: 30px;
+  
 .alertMessage {
     margin: 0 auto;
     width:250px;

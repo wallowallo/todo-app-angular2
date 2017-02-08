@@ -2,7 +2,8 @@
 .loadingCircle {
   max-width: 30px;
   max-height: 30px;
-  
+}
+
 .alertMessage {
     margin: 0 auto;
     width:250px;

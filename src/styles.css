@@ -2,4 +2,20 @@
 .loadingCircle {
   max-width: 30px;
   max-height: 30px;
+  
+.alertMessage {
+    margin: 0 auto;
+    width:250px;
+    background: red;
+    -webkit-animation: fadeinout 4s linear forwards;
+    animation: fadeinout 4s linear forwards;
+    opacity: 0;
+}
+
+@-webkit-keyframes fadeinout {
+  50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  50% { opacity: 1; }
 }

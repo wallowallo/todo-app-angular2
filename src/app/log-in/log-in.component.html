@@ -6,14 +6,14 @@
   <form class='flex item-center ma3' (ngSubmit)="logInUser(User.value)" [formGroup]="User">
 		<div class='center bg-green ba bw2 br2 shadow-1 b--light-blue'>
 			<h1 class='f1 db ma3'>
-				Please Log In:
+				Log In:
 			</h1>
 			<label class='db ma3 underline' for='username'>Username:</label>
 			<input class='db ma3' type='text' minlength='4' maxlength='20' name='username' id='username'  placeholder='Type in your username' [formControl]="username" required>
 			<label class='db ma3 underline' for='password'>Password:</label>
 			<input class='db ma3' type='password' minlength='8' maxlength='25' name='password' id='password' placeHolder='Type in your password' [formControl]="password" required>
-			<button [disabled]="loading" type='submit' class='bg-silver b--gold black br3 ma3'>Log In</button>
-      <img class="loadingCircle" *ngIf="loading" src="loader.gif">
-      <a class="center ba bw2 br2 shadow-1 b--light-blue pa1 black" routerLink="/sign-up" routerLinkActive="active">Sign up</a>
+			<button [disabled]="loading" type='submit' class='bg-silver b--gold black br3 ma2 fl' id="loginButton">Log In</button>
+      <a class="fr ba bw2 br2 shadow-1 b--light-blue pa1 black" routerLink="/sign-up" routerLinkActive="active" id="registerLink">Sign up</a>
+    <img class="flex center ma3" id="loadingCircle" *ngIf="loading" src="loader.gif">
   	</div>
 	</form>

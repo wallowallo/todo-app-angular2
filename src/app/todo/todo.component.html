@@ -3,12 +3,8 @@
   <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
 </head>
 
-  <div class="flex item-center ma3">
-    <p class="center"><a class="ba bw2 br2 shadow-1 b--light-blue pa1" [routerLink]="['/log-in']">Log out</a></p>
-  </div>
-
   <div class='flex item-center'>
-    <h1 class='f1 db ma3 center'>
+    <h1 id="todoHeader" class='f1 center'>
       {{currentUser}}´s {{header}}
     </h1>
   </div>
@@ -18,18 +14,19 @@
 			<h1 class='f1 db ma3'>
 				Make Todos:
 			</h1>
-			<label class='db ma3 underline' for='title'>Title:</label>
-			<input class='db ma3' type='text' name='title' id='title'  placeholder='Type in title' [formControl]="title" required>
-			<label class='db ma3 underline' for='description'>Description:</label>
-      <textarea row="2" cols="19" class='db ma3' type='text' name='description' id='description' placeHolder='Type in description' [formControl]="description" required></textarea>
-			<button type='submit' class='bg-silver b--gold black br3 db ma3'>Add Todo</button>
+			<label id="todoTitleLabel" class='db ma3 underline' for='title'>Title:</label>
+			<input id="inputTitle" class='center db ma3' type='text' name='title'  placeholder='Type in title' [formControl]="title" required>
+			<label id="todoDescriptionLabel" class='db ma3 underline' for='description'>Description:</label>
+      <textarea row="3" cols="30" class='center db ma3' type='text' name='description' id='inputDescription' placeHolder='Type in description' [formControl]="description" required></textarea>
+			<button id="todoSubmit" type='submit' class='bg-silver b--gold black br3  ma2'>Add Todo</button>
+    <a class="fr ba bw2 br2 shadow-1 b--light-blue pa1" [routerLink]="['/log-in']" id="logOutLink">Log out</a>
 		</div>
 	</form>
 
 	<div class='flex item center center db'>
 		<ul class="list center ma3">
 			<li class='center bg-blue ba bw1 shadow-1 b--black br2 ma3' *ngFor='let todo of todos; let i = index'>
-				<span class='f4 ma3 db underline'>Title: {{todo.title}}</span>
+				<span class='f4 ma3 db'>Title: {{todo.title}}</span>
 				<span class='ma3 db'>{{todo.description}}</span>
         <button class='bg-lightest-blue ma3 db br3 b--dark-pink purple' (click)='deleteTodo(todo._id)'>Delete Task</button>
 			</li>

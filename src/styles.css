@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+
 #loadingCircle {
   max-width: 30px;
   max-height: 30px;
@@ -21,25 +23,12 @@
   50% { opacity: 1; }
 }
 
-#registerLink {
-  margin-right: 15px;
-}
-
-#loginButton {
-  margin-left: 20px; 
-  margin-top: 5px !important;
-}
-
 #registerPass, #registerUsername {
   margin-left: 25px;
 }
 
-#todoTitleLabel, #todoDescriptionLabel {
-  margin-left: 30px;
-}
-
 #inputTitle {
-  width: 260px; 
+  width: 260px;
 }
 
 #todoSubmit {
@@ -49,8 +38,4 @@
 #logOutLink {
   margin-right: 30px;
   margin-top: 2px;
-}
-
-#registerSubmit {
-  margin-left: 25px;
 }

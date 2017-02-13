@@ -9,6 +9,9 @@ import { LogInComponent } from './log-in/index';
 import { SignUpComponent } from './sign-up/index';
 import { TodoComponent } from './todo/index';
 import { AuthGuard } from './_guards/index';
+import { MaterialModule } from '@angular/material';
+import 'hammerjs';
+
 
 import { LoginService, SignupService, TodoService, AlertService } from './_services/index';
 import { routing } from './_routing/app.routing';
@@ -26,7 +29,8 @@ import { routing } from './_routing/app.routing';
     ReactiveFormsModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    MaterialModule.forRoot()
   ],
   providers: [
     LoginService,

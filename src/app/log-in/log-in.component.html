@@ -4,7 +4,7 @@
 </head>
 
   <form class='flex item-center ma3' (ngSubmit)="logInUser(User.value)" [formGroup]="User">
-		<div class='center bg-green ba bw2 br2 shadow-1 b--light-blue'>
+		<!-- <div class='center bg-green ba bw2 br2 shadow-1 b--light-blue'>
 			<h1 class='f1 db ma3'>
 				Log In:
 			</h1>
@@ -15,5 +15,31 @@
 			<button [disabled]="loading" type='submit' class='bg-silver b--gold black br3 ma2 fl' id="loginButton">Log In</button>
       <a class="fr ba bw2 br2 shadow-1 b--light-blue pa1 black" routerLink="/sign-up" routerLinkActive="active" id="registerLink">Sign up</a>
     <img class="flex center ma3" id="loadingCircle" *ngIf="loading" src="loader.gif">
-  	</div>
+  	</div> -->
+
+    <md-card class="center">
+      <md-card-title>
+        <h2 class='db ma3'>
+          Log in:
+        </h2>
+      </md-card-title>
+
+      <md-card-content>
+        <md-input-container>
+          	<input md-input type='text' minlength='4' maxlength='20' placeholder='Username' [formControl]="username" required>
+        </md-input-container>
+      </md-card-content>
+
+      <md-card-content>
+        <md-input-container>
+          <input md-input type='password' minlength='8' maxlength='25' placeholder='Password' [formControl]="password" required>
+        </md-input-container>
+      </md-card-content>
+
+      <md-card-content>
+        <button md-raised-button [disabled]="loading" type='submit' class=''>Log In</button>
+        <a class="ma2"routerLink="/sign-up" routerLinkActive="active" id="registerLink">Sign up</a>
+        <img class="flex center ma3" id="loadingCircle" *ngIf="loading" src="loader.gif">
+      </md-card-content>
+    </md-card>
 	</form>

@@ -4,15 +4,28 @@
 </head>
 
 <form class='flex item-center ma3' (ngSubmit)="newUser(addUser.value)" [formGroup]="addUser">
-  <div class='center bg-green ba bw2 br2 shadow-1 b--light-blue'>
-    <h1 class='f1 db ma3'>
-      Sign Up:
-    </h1>
-    <label id="registerUsername" class='tl db ma3 underline' for='username'>Username:</label>
-    <input class='flex center ma3' type='text' name='username' minlength='4' maxlength='20' id='username'  placeholder='Type in your username' [formControl]="username" required>
-    <label id="registerPass" class='tl db ma3 underline' for='password'>Password:</label>
-    <input class='db ma3 center' type='password' minlength='8' maxlength='25' name='password' id='password' placeHolder='Type in your password' [formControl]="password" required>
-    <button id="registerSubmit" [disabled]="loading" type='submit' class='bg-silver b--gold black br3  ma3'>Sign up</button>
-    <img class="flex center ma3" id="loadingCircle" *ngIf="loading" src="loader.gif">
-  </div>
+  <md-card class="center">
+    <md-card-title>
+      <h2 class='db ma3'>
+        Register:
+      </h2>
+    </md-card-title>
+
+    <md-card-content>
+      <md-input-container>
+        <input md-input class='' type='text' minlength='4' maxlength='20' placeholder='Username' [formControl]="username" required>
+      </md-input-container>
+    </md-card-content>
+
+    <md-card-content>
+      <md-input-container>
+        <input md-input class='' type='password' minlength='8' maxlength='25' placeholder='Password' [formControl]="password" required>
+      </md-input-container>
+    </md-card-content>
+
+    <md-card-content>
+      <button md-raised-button [disabled]="loading" type='submit' class='flex center'>Sign up</button>
+      <img class="flex center ma3" id="loadingCircle" *ngIf="loading" src="loader.gif">
+    </md-card-content>
+  </md-card>
 </form>

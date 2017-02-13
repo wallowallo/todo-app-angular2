@@ -3,32 +3,46 @@
   <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
 </head>
 
-  <div class='flex item-center'>
-    <h1 id="todoHeader" class='f1 center'>
-      {{currentUser}}´s {{header}}
-    </h1>
-  </div>
-
   <form class='flex item-center ma3' (ngSubmit)="newTodo(currentUserId, title.value, description.value)" [formGroup]="addTodo">
-		<div class='center bg-green ba bw2 br2 shadow-1 b--light-blue'>
-			<h1 class='f1 db ma3'>
-				Make Todos:
-			</h1>
-			<label id="todoTitleLabel" class='db ma3 underline' for='title'>Title:</label>
-			<input id="inputTitle" class='center db ma3' type='text' name='title'  placeholder='Type in title' [formControl]="title" required>
-			<label id="todoDescriptionLabel" class='db ma3 underline' for='description'>Description:</label>
-      <textarea row="3" cols="30" class='center db ma3' type='text' name='description' id='inputDescription' placeHolder='Type in description' [formControl]="description" required></textarea>
-			<button id="todoSubmit" type='submit' class='bg-silver b--gold black br3  ma2'>Add Todo</button>
-    <a class="fr ba bw2 br2 shadow-1 b--light-blue pa1" [routerLink]="['/log-in']" id="logOutLink">Log out</a>
-		</div>
+    <md-card class="center">
+      <md-card-title>
+        <h2 class='db ma3'>
+          New Todo:
+        </h2>
+      </md-card-title>
+
+      <md-card-content>
+        <md-input-container>
+          	<input md-input type='text' placeholder='Title' [formControl]="title" required>
+        </md-input-container>
+      </md-card-content>
+
+      <md-card-content>
+        <md-input-container>
+          <textarea md-input row="3" type='text' placeholder='Description' [formControl]="description" required></textarea>
+        </md-input-container>
+      </md-card-content>
+
+      <md-card-content>
+        <button md-raised-button [disabled]="loading" type='submit' class='ma2'>Add Todo</button>
+        <a class="ma2" [routerLink]="['/log-in']" id="logOutLink">Log out</a>
+        <img class="flex center ma3" id="loadingCircle" *ngIf="loading" src="loader.gif">
+      </md-card-content>
+    </md-card>
 	</form>
 
-	<div class='flex item center center db'>
-		<ul class="list center ma3">
-			<li class='center bg-blue ba bw1 shadow-1 b--black br2 ma3' *ngFor='let todo of todos; let i = index'>
-				<span class='f4 ma3 db'>Title: {{todo.title}}</span>
-				<span class='ma3 db'>{{todo.description}}</span>
-        <button class='bg-lightest-blue ma3 db br3 b--dark-pink purple' (click)='deleteTodo(todo._id)'>Delete Task</button>
-			</li>
-		</ul>
-	</div>
+  <md-list class="flex center ma3">
+    <md-card class="center">
+      <h1 class='f2 center'>
+        {{currentUser}}´s {{header}}
+      </h1>
+      <md-card-content class="center">
+        <md-list-item *ngFor="let todo of todos" class="center">
+          <img md-list-avatar src="list-check.png" alt="list-check">
+          <span md-line class="tc">{{todo.title}}</span>
+          <span md-line class="tc">{{todo.description}}</span>
+          <button md-raised-button class='ma3' (click)='deleteTodo(todo._id)'>Delete</button>
+        </md-list-item>
+      </md-card-content>
+    </md-card>
+  </md-list>
